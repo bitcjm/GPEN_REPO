@@ -1,0 +1,14 @@
+===========================train_params===========================
+model_name:GPEN
+python:python3.7
+gpu_list:0
+use_gpu:True
+##
+norm_train:train.py --size 256 --max_iter 50 --batch_size 2 --train_path data/ffhq/images256x256 --test_path data/ffhq/images256x256 --lr 0.002 --ckpt_dir GPEN_tipc
+##
+===========================eval_params===========================
+eval:null
+null:null
+===========================infer_params===========================
+infer_export:export_model.py --model_path GPEN_tipc/G_256_repo_final.pdparams  --save_dir inference/GPEN
+inference:infer.py --model_file inference/GPEN/model.pdmodel --params_file inference/GPEN/model.pdiparams --img data_2/GPEN/predict/test_img.png
